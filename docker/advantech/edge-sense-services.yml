@@ -1,0 +1,58 @@
+version: '2'
+
+
+services:
+  
+  advigw-mqtt-bus:
+   image: advigw4x86/mqtt-bus:v2.0.2
+   container_name: advigw-mqtt-bus
+   restart: always
+   ports:
+    - 1883:1883
+   logging:
+    options:
+     max-size: 5M
+
+
+  service-modbus:
+    image: advigw4x86/service-modbus
+    container_name: service-modbus
+    restart: always
+    network_mode: host
+    privileged: true
+    volumes:
+     - /dev:/dev
+     - ../../EdgeSense:/home/adv
+    logging:
+     options:
+      max-size: 10M
+    
+
+  service-hddpmq:
+    image: advigw4x86/service-hddpmq
+    container_name: service-hddpmq
+    restart: always
+    network_mode: host
+    privileged: true
+    volumes:
+     - /dev:/dev
+     - ../../EdgeSense:/home/adv
+    logging:
+     options:
+      max-size: 10M
+
+
+  service-susi:
+    image: advigw4x86/service-susi
+    container_name: service-susi
+    restart: always
+    network_mode: host
+    privileged: true
+    volumes:
+     - ../../EdgeSense:/home/adv
+    logging:
+     options:
+      max-size: 10M
+
+
+ 

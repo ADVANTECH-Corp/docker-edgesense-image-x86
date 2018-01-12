@@ -1,0 +1,20 @@
+version: '2'
+
+
+services:
+
+  advigw-ei-agnet:
+   image: advigw4x86/ensaas-ei-agent
+   container_name: ensaas-ei-agent
+   restart: always
+   network_mode: host
+   pid: host
+   volumes: 
+    - /run:/run
+    - ../../EdgeSense:/home/adv
+   privileged: true   
+   logging:
+    options:
+     max-size: 10M
+   
+
