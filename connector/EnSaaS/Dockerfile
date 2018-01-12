@@ -1,0 +1,13 @@
+FROM advigw4x86/rmm3.3-agent_service-base
+
+#MAINTAINER Advantech
+# SUSIControl_Handler
+
+RUN apt-get update &&\
+    apt-get install -y ethtool libcurl4-openssl-dev lsb-release &&\
+    git clone --branch ei-agent https://github.com/ADVANTECH-Corp/docker-igw-app-x86.git &&\
+    mv /home/adv/docker-igw-app-x86/AgentService /usr/local/. && cd /usr/local/. &&\
+    rm -rf /home/adv/docker-igw-app-x86/ &&\
+    apt-get autoremove --purge -y git-core
+
+ENTRYPOINT ["/usr/local/AgentService/run_service-agent.sh"]
