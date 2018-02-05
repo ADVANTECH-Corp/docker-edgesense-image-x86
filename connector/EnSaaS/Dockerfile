@@ -8,6 +8,9 @@ RUN apt-get update &&\
     git clone --branch ei-agent https://github.com/ADVANTECH-Corp/docker-igw-app-x86.git &&\
     mv /home/adv/docker-igw-app-x86/AgentService /usr/local/. && cd /usr/local/. &&\
     rm -rf /home/adv/docker-igw-app-x86/ &&\
+    git clone --branch wapi https://github.com/ADVANTECH-Corp/docker-igw-app-x86.git &&\
+    cd /home/adv/docker-igw-app-x86/ && install.sh &&\
+    cd /home/adv/ && rm ./docker-igw-app-x86 &&\
     apt-get autoremove --purge -y git-core
 
 ENTRYPOINT ["/usr/local/AgentService/run_service-agent.sh"]
