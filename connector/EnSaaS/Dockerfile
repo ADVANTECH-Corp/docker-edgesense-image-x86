@@ -9,7 +9,7 @@ RUN apt-get update &&\
     mv /home/adv/docker-igw-app-x86/AgentService /usr/local/. && cd /usr/local/. &&\
     rm -rf /home/adv/docker-igw-app-x86/ && cd /home/adv &&\
     git clone --branch wapi https://github.com/ADVANTECH-Corp/docker-igw-app-x86.git &&\
-    cd /home/adv/docker-igw-app-x86/ && install.sh &&\
+    cd /home/adv/docker-igw-app-x86/ && ./install.sh &&\
     rm -rf /home/adv/docker-igw-app-x86 &&\
     apt-get autoremove --purge -y git-core
 
