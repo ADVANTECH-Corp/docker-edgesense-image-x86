@@ -1,5 +1,5 @@
 
-Edge Sense Protocol Connector includes  EI-Agent, MQTT-BUS, SUSIControl, Modbus, and HDD-PMQ Services on x86_64 Ubuntun 16.04 Dokcer Image.
+Edge Sense Protocol Connector includes  EI-Agent, MQTT-BUS, Node-RED, SUSIControl, Modbus, and HDD-PMQ Services on x86_64 Ubuntun 16.04 Dokcer Image.
 
 #Requirement
 Arch: x86_64

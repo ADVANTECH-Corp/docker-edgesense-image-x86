@@ -14,8 +14,20 @@ services:
      max-size: 5M
 
 
+  advigw-node-red:
+   image: advigw4x86/node-red:v2.0.2
+   container_name: advigw-node-red
+   restart: always
+   network_mode: host
+   ports:
+    - 1880:1880
+   logging:
+    options:
+     max-size: 10M
+
+
   service-modbus:
-    image: advigw4x86/service-modbus
+    image: advigw4x86/service-modbus:v1.0.1
     container_name: service-modbus
     restart: always
     network_mode: host
@@ -29,7 +41,7 @@ services:
     
 
   service-hddpmq:
-    image: advigw4x86/service-hddpmq
+    image: advigw4x86/service-hddpmq:v1.0.1
     container_name: service-hddpmq
     restart: always
     network_mode: host
@@ -43,7 +55,7 @@ services:
 
 
   service-susi:
-    image: advigw4x86/service-susi
+    image: advigw4x86/service-susi:v1.0.1
     container_name: service-susi
     restart: always
     network_mode: host

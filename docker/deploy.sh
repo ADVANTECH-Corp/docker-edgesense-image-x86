@@ -62,7 +62,7 @@ fi
 # version
 if [ "$1" == "version" ]; then
   source ./version.sh
-  echo "EIS version is: ${EIS_VER}"
+  echo "EdgeSense version is: ${EIS_VER}"
   exit 0 
 fi
 
