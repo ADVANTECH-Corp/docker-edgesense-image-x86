@@ -34,11 +34,11 @@ for ac in ${actions[@]}; do
    fi
 done
 
-if [ "$1" == "connector" ]; then
+if [ "$1" == "converter" ]; then
   compose_param=""
   if [ -n $2 ]; then
 	if [ $2 == 'EnSaaS' ]; then
-		compose_param=" -f ./connector/EnSaaS.yml "
+		compose_param=" -f ./converter/EnSaaS.yml "
 		# check action
 		for ac in ${actions[@]}; do
 		   if [ "$3" == $ac ]; then
@@ -50,11 +50,11 @@ if [ "$1" == "connector" ]; then
 		   action=" up -d"
 		fi
 	else
-	  echo 'Connector only support "EnSaaS"'
+	  echo 'Converter only support "EnSaaS"'
           exit 0
 	fi
   else
-	echo 'To select whcih Cloud - EnSaaS, Azure, AWS'
+	echo 'To select whcih Cloud - EnSaaS'
         exit 0
   fi	 
 fi

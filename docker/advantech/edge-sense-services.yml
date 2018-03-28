@@ -7,6 +7,8 @@ services:
    image: advigw4x86/mqtt-bus:v2.0.2
    container_name: advigw-mqtt-bus
    restart: always
+   networks:
+    - advigw-network
    ports:
     - 1883:1883
    logging:
@@ -27,7 +29,7 @@ services:
 
 
   service-modbus:
-    image: advigw4x86/service-modbus:v1.0.1
+    image: advigw4x86/service-modbus:v1.0.2
     container_name: service-modbus
     restart: always
     network_mode: host
@@ -41,7 +43,7 @@ services:
     
 
   service-hddpmq:
-    image: advigw4x86/service-hddpmq:v1.0.1
+    image: advigw4x86/service-hddpmq:v1.0.2
     container_name: service-hddpmq
     restart: always
     network_mode: host
@@ -55,16 +57,22 @@ services:
 
 
   service-susi:
-    image: advigw4x86/service-susi:v1.0.1
+    image: advigw4x86/service-susi:v1.0.2
     container_name: service-susi
     restart: always
     network_mode: host
     privileged: true
+    #environment:
+     #- DEBUG_MODE=1
     volumes:
+     - /dev:/dev
      - ../../EdgeSense:/home/adv
     logging:
      options:
       max-size: 10M
 
+
+networks:
+  advigw-network:
 
  

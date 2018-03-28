@@ -4,12 +4,12 @@ version: '2'
 services:
 
   advigw-ei-agnet:
-   image: advigw4x86/ensaas-ei-agent
+   image: advigw4x86/ensaas-ei-agent:v1.0.2
    container_name: ensaas-ei-agent
    restart: always
    network_mode: host
    pid: host
-   volumes: 
+   volumes:  
     - /run:/run
     - ../../EdgeSense:/home/adv
    privileged: true   
